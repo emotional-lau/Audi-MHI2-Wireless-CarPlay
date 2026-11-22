@@ -1,0 +1,24 @@
+# Build outputs & binaries
+*.o
+*.so
+*.dll
+*.exe
+*.bin
+*.elf
+*.a
+*.zip
+*.tar.gz
+
+# Local working directories, third-party codecs & caches
+local/
+dist/
+build/
+third_party/
+__pycache__/
+*.pyc
+
+# Logs & vehicle diagnostics
+*.log
+*.tmp
+wcp-rx-*.txt
+P0916_DIAG/

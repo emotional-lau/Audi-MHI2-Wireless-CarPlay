@@ -1,0 +1,71 @@
+Copyright (c) 2026 @emotional-lau (GitHub: @emotional-lau / 微博・汽车之家: @emotional_lau). All Rights Reserved.
+
+================================================================================
+简体中文许可与版权声明
+================================================================================
+
+1. 版权归属
+   本项目仓库中所有原创源代码及文档的全部版权均归作者 @emotional_lau
+   （GitHub: @emotional-lau / 微博・汽车之家: @emotional_lau）所有。
+
+2. 允许的使用范围（仅限个人非商业学习与技术交流）
+   在保留本版权声明的前提下，允许个人出于非商业性的技术交流、学术研究与学习目的
+   查看、阅读和讨论本仓库中的源代码。
+
+3. 严禁未经授权的商业化行为
+   未经作者 @emotional_lau 事先明确书面授权，严禁任何组织或个人将本项目的全部或
+   部分代码、逻辑、文档及其衍生内容用于任何商业化用途，包括但不限于：
+   - 倒卖源码、打包或二次修改后出售；
+   - 收费代安装、远程/线下收费刷机、有偿激活；
+   - 集成至商业刷机工具箱、商业固件包、外置盒子/硬件产品中；
+   - 任何以直接或间接营利为目的的分发、运营或商业宣传行为。
+
+4. 第三方库声明
+   本公开展示仓库仅包含自研研究文档与独立无外部依赖的纯 C 密码学基础实现，
+   未包含亦未直接分发任何第三方开源编解码库（如 libhelix-aac、libopus 等）。
+
+5. 原厂固件声明
+   本仓库不包含任何奥迪（Audi）、大众集团（VAG）或哈曼（Harman）原厂二进制文件、
+   固件镜像或专有密钥材料。
+
+6. 免责声明
+   本仓库当前内容仅为非完全的阶段性研究源码，不提供任何形式的质量、完整性、可用性或
+   适配性担保。因查阅、参考或自行实验相关代码引发的任何风险或损失均由使用者自行承担。
+
+================================================================================
+English Copyright & Non-Commercial Notice
+================================================================================
+
+1. Copyright Ownership
+   All copyrights to the original source code and documentation in this
+   repository belong exclusively to the author
+   (GitHub: @emotional-lau / Weibo & Autohome: @emotional_lau).
+
+2. Permitted Use (Personal Non-Commercial Study & Discussion Only)
+   Permission is granted to view, read, and discuss the source code in this
+   repository strictly for personal, non-commercial technical study and learning,
+   provided that this copyright notice is retained in full.
+
+3. Strict Prohibition of Unauthorized Commercialization
+   Without explicit prior written authorization from @emotional_lau, any
+   commercial use of this project—in whole or in part, whether original or
+   modified—is strictly prohibited, including without limitation:
+   - Reselling source code or repackaged/modified builds;
+   - Paid installation, paid remote or in-person coding/flashing services;
+   - Packaging into commercial toolboxes, commercial firmware releases, or
+     commercial dongle/hardware products;
+   - Any redistribution or operation intended for direct or indirect profit.
+
+4. No Third-Party Code Included
+   This public showcase repository contains only research documentation and
+   standalone, dependency-free C cryptographic primitives, and does not include
+   or distribute any third-party codec libraries (such as libhelix-aac or libopus).
+
+5. No OEM Binaries
+   This repository does not contain any Audi, Volkswagen Group, or Harman OEM
+   binaries, firmware images, or proprietary key material.
+
+6. Disclaimer
+   This is an incomplete work-in-progress research snapshot provided "AS IS",
+   without warranty of any kind, express or implied. Any risk arising from
+   studying or experimenting with the code rests solely with the user.
