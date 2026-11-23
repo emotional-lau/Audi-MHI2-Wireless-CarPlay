@@ -41,14 +41,15 @@ flowchart LR
 ## 2. Current Real-Vehicle Progress
 
 - **Verified & working on real vehicle**:
-  - Bluetooth iAP2 authentication response and Wi‑Fi credential handover trigger;
-  - Wireless CarPlay control session discovery, HAP pairing/verification, and `ChaCha20-Poly1305` encrypted control & event channels;
-  - `800×480` H.264 main display output, smooth MMI rotary knob input, and multi-cycle teardown/reconnect stability.
+  - Bluetooth iAP2 authentication and Wi‑Fi credential handover, CarPlay control session discovery, HAP pairing/verification, and `ChaCha20-Poly1305` encrypted control & event channels;
+  - `800×480` H.264 main display projection, smooth MMI rotary knob control, and multi-cycle teardown/reconnect stability;
+  - **Full wireless audio paths working on real vehicle**: Media & voice messages (AAC-LC 48 kHz), navigation prompts (Opus 16 kHz), and bidirectional telephony/Siri microphone uplink (Opus 16 kHz) all play cleanly, with low-latency jitter-buffer tuning and flush handling on pause/skip;
+  - **Zero-flash pairing persistence & post-handover Bluetooth teardown**: Cold boots skip initial pairing via persisted identity verification, and Classic Bluetooth links are gracefully released once wireless CarPlay starts.
 - **In progress / incomplete**:
-  - **Wireless audio path (real-car debugging)**: The iPhone audio output picker already detects and selects CarPlay, and media audio stream setup triggers `nvaudio` on the head unit; currently resolving an immediate stream teardown during media playback `SETUP` handshake;
-  - **Pairing persistence & Bluetooth cleanup (pending)**: RAM-only test runs reset pairing identity across reboots, causing manual re-pairing and modal dialog stalls; persistent identity storage and post-session Bluetooth link teardown are pending;
-  - **No-SIM notification suppression (pending)**;
-  - **Audi Virtual Cockpit cluster map projection compatibility (pending)**.
+  - **Auto-launch on boot & one-tap reconnect from head unit (in development)**: Currently requires manual initiation on the phone side and hits a HMI timing window on Connection Manager reconnect; next up is head-unit-initiated Bluetooth iAP2 dialing and reconnect timing alignment;
+  - **iOS "Other Cars" merging & pairing modal dismissal (investigating)**: iPhone saves the wireless CarPlay switch under "My Cars", while the Classic Bluetooth entry still lingers under "Other Cars" with the pairing modal spinning;
+  - **Audi Virtual Cockpit integration (pending)**: Cluster Now Playing track metadata and cluster map projection compatibility;
+  - **No-SIM notification suppression (pending)**.
 
 ---
 
