@@ -38,20 +38,17 @@ flowchart LR
 
 ---
 
-## 2. Current Real-Vehicle Progress
+## 2. Current Real-Vehicle Progress (2026-11-25)
 
 - **Verified & working on real vehicle**:
   - Bluetooth iAP2 authentication and Wi‑Fi credential handover, CarPlay control session discovery, HAP pairing/verification, and `ChaCha20-Poly1305` encrypted control & event channels;
-  - `800×480` H.264 main display projection, smooth MMI rotary knob control, and multi-cycle teardown/reconnect stability;
-  - **Full wireless audio paths working on real vehicle**: Media & voice messages (AAC-LC 48 kHz), navigation prompts (Opus 16 kHz), and bidirectional telephony/Siri microphone uplink (Opus 16 kHz) all play cleanly, with low-latency jitter-buffer tuning and flush handling on pause/skip;
-  - **Zero-flash pairing persistence & post-handover Bluetooth teardown**: Cold boots skip initial pairing via persisted identity verification, and Classic Bluetooth links are gracefully released once wireless CarPlay starts.
-- **In progress / incomplete**:
-  - **Auto-launch on boot & one-tap reconnect from head unit (in development)**: Currently requires manual initiation on the phone side and hits a HMI timing window on Connection Manager reconnect; next up is head-unit-initiated Bluetooth iAP2 dialing and reconnect timing alignment;
-  - **iOS "Other Cars" merging & pairing modal dismissal (investigating)**: iPhone saves the wireless CarPlay switch under "My Cars", while the Classic Bluetooth entry still lingers under "Other Cars" with the pairing modal spinning;
-  - **Audi Virtual Cockpit integration (pending)**: Cluster Now Playing track metadata and cluster map projection compatibility;
-  - **No-SIM notification suppression (pending)**.
-
----
+  - `800×480` H.264 main display projection, smooth MMI rotary knob control, and stable manual disconnect/reconnect & auto-reconnect via the MMI Connection Manager;
+  - **Zero-stutter wireless audio across all paths**: Buffered media playback (48 kHz AAC-LC tuned for iOS Wi‑Fi burst pacing, verified with `underruns=0` on real vehicle), navigation prompts (Opus 16 kHz), and bidirectional telephony/Siri uplink (Opus 16 kHz);
+  - **Zero-flash pairing persistence & graceful Bluetooth release**: Cold boots skip initial pairing via persisted identity verification, and Classic Bluetooth links are cleanly released once wireless CarPlay starts.
+- **Next-phase polish & remaining items (work in progress)**:
+  - **No-SIM popup suppression**: Root cause identified on the Wi‑Fi client notification path; pure-RAM zero-flash design finalized for upcoming vehicle verification;
+  - **Audi Virtual Cockpit integration**: Coexistence with existing cluster map projection patches and bridging wireless Now Playing track metadata to the cluster;
+  - **Daily auto-run mode & final boundary regression**: Trigger-free daily SD startup, log rotation, and full regression checks across Siri/mic uplink, telephony, wired USB CarPlay, and OEM Bluetooth audio.
 
 ## 3. Public Directory Contents
 
