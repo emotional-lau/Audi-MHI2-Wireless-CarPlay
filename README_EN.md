@@ -44,9 +44,9 @@ flowchart LR
   - Bluetooth iAP2 authentication and Wi‑Fi credential handover, CarPlay control session discovery, HAP pairing/verification, and `ChaCha20-Poly1305` encrypted control & event channels;
   - `800×480` H.264 main display projection, smooth MMI rotary knob control, and stable manual disconnect/reconnect & auto-reconnect via the MMI Connection Manager;
   - **Zero-stutter wireless audio across all paths**: Buffered media playback (48 kHz AAC-LC tuned for iOS Wi‑Fi burst pacing, verified with `underruns=0` on real vehicle), navigation prompts (Opus 16 kHz), and bidirectional telephony/Siri uplink (Opus 16 kHz);
-  - **Zero-flash pairing persistence & graceful Bluetooth release**: Cold boots skip initial pairing via persisted identity verification, and Classic Bluetooth links are cleanly released once wireless CarPlay starts.
+  - **Zero-flash pairing persistence & graceful Bluetooth release**: Cold boots skip initial pairing via persisted identity verification, and Classic Bluetooth links are cleanly released once wireless CarPlay starts;
+  - **Pure-RAM No-SIM popup suppression (verified on real vehicle)**: Eliminates the OEM "No data connection / Please insert SIM card" popup triggered when joining the vehicle AP—with zero flash writes and full preservation of iPhone 4G/5G cellular data—paired with `/ramdisk` footprint slimming (~5.5 MiB / 29% steady-state) verified across multi-minute continuous voice call and music sessions.
 - **Next-phase polish & remaining items (work in progress)**:
-  - **No-SIM popup suppression**: Root cause identified on the Wi‑Fi client notification path; pure-RAM zero-flash design finalized for upcoming vehicle verification;
   - **Audi Virtual Cockpit integration**: Coexistence with existing cluster map projection patches and bridging wireless Now Playing track metadata to the cluster;
   - **Daily auto-run mode & final boundary regression**: Trigger-free daily SD startup, log rotation, and full regression checks across Siri/mic uplink, telephony, wired USB CarPlay, and OEM Bluetooth audio.
 
