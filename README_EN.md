@@ -51,6 +51,16 @@ flowchart LR
   - **Wireless cluster Now Playing metadata & network-stack stability hardening**: Wireless track metadata channel negotiation and session establishment have been initially tested; currently prioritizing diagnosis of an intermittent QNX network-stack stability issue before completing the cluster metadata loop;
   - **Daily auto-run mode & final boundary regression**: Trigger-free daily SD startup, log rotation, and full regression checks across Siri/mic uplink, telephony, wired USB CarPlay, and OEM Bluetooth audio.
 
+### Compatibility Progress with `chefranov/mhi2-au37x-carplay`
+
+| Feature | Status | Notes |
+| --- | --- | --- |
+| **Virtual Cockpit full-screen map / navigation cluster projection** | **✅ Verified on real vehicle** | Coexists cleanly in pure RAM; smooth rendering, stable center/cluster switching, and zero-underrun concurrent audio |
+| **Cluster call state & CarPlay disclaimer skip** | **✅ Compatible out of the box** | Works directly through stock OEM infotainment interfaces in wireless mode |
+| **Wireless cluster Now Playing metadata & progress** | **🚧 In progress** | Wireless metadata channel negotiation and session setup initially tested; pending diagnosis of an intermittent QNX network-stack crash before closing the loop |
+| **Album cover art on cluster** | **📋 Planned** | Planned extension once the wireless metadata channel is stabilized |
+| **Cluster 3D maneuver cards & phone recents/favorites/dialing** | **📋 Planned** | Wired implementation relies on USB protocol paths; wireless bridging planned after general control-session bring-up |
+
 ## 3. Public Directory Contents
 
 This public showcase includes only standalone generic C cryptographic primitives and QNX base ABI type headers (3 source files), containing **no target firmware offsets or head-unit Hook implementations**:
@@ -64,7 +74,7 @@ This public showcase includes only standalone generic C cryptographic primitives
 
 ## 4. Referenced Projects & Attribution
 
-Research and protocol analysis referenced the following 4 open-source projects (with specific areas credited):
+Research and protocol analysis referenced the following 5 open-source projects (with specific areas credited):
 
 1. **[joeyQuery/MHI2-wirelessCarPlay](https://github.com/joeyQuery/MHI2-wirelessCarPlay)**
    - **Referenced for**: Classic MHI2 Bluetooth iAP2 / DIO / AirPlay boundary tracing and firmware comparison notes.
@@ -77,6 +87,9 @@ Research and protocol analysis referenced the following 4 open-source projects (
 
 4. **[congobg/MHI2Q_WiFi_CarPlay](https://github.com/congobg/MHI2Q_WiFi_CarPlay)**
    - **Referenced for**: Stock `libairplay.so (210.81)` wireless audio relay design (`/info` audio format advertisement, stream type mapping, UDP decoding paced against the stock jitter buffer playhead into PCM, and Opus microphone uplink).
+
+5. **[chefranov/mhi2-au37x-carplay](https://github.com/chefranov/mhi2-au37x-carplay)**
+   - **Referenced for**: Audi MHI2 AU37x Virtual Cockpit cluster projection and extension project; our pure-RAM wireless CarPlay layer achieves side-by-side coexistence with it on real hardware and continues adding wireless support for its cluster features.
 
 ---
 
