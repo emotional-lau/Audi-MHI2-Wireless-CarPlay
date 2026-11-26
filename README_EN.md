@@ -38,16 +38,17 @@ flowchart LR
 
 ---
 
-## 2. Current Real-Vehicle Progress (2026-11-25)
+## 2. Current Real-Vehicle Progress (2026-11-26)
 
 - **Verified & working on real vehicle**:
   - Bluetooth iAP2 authentication and Wi‑Fi credential handover, CarPlay control session discovery, HAP pairing/verification, and `ChaCha20-Poly1305` encrypted control & event channels;
   - `800×480` H.264 main display projection, smooth MMI rotary knob control, and stable manual disconnect/reconnect & auto-reconnect via the MMI Connection Manager;
   - **Zero-stutter wireless audio across all paths**: Buffered media playback (48 kHz AAC-LC tuned for iOS Wi‑Fi burst pacing, verified with `underruns=0` on real vehicle), navigation prompts (Opus 16 kHz), and bidirectional telephony/Siri uplink (Opus 16 kHz);
   - **Zero-flash pairing persistence & graceful Bluetooth release**: Cold boots skip initial pairing via persisted identity verification, and Classic Bluetooth links are cleanly released once wireless CarPlay starts;
-  - **Pure-RAM No-SIM popup suppression (verified on real vehicle)**: Eliminates the OEM "No data connection / Please insert SIM card" popup triggered when joining the vehicle AP—with zero flash writes and full preservation of iPhone 4G/5G cellular data—paired with `/ramdisk` footprint slimming (~5.5 MiB / 29% steady-state) verified across multi-minute continuous voice call and music sessions.
+  - **Pure-RAM No-SIM popup suppression (verified on real vehicle)**: Eliminates the OEM "No data connection / Please insert SIM card" popup triggered when joining the vehicle AP—with zero flash writes and full preservation of iPhone 4G/5G cellular data—paired with `/ramdisk` footprint slimming (~5.5 MiB / 29% steady-state) verified across multi-minute continuous voice call and music sessions;
+  - **Audi Virtual Cockpit cluster map projection compatibility (verified on real vehicle)**: Coexists cleanly with existing cluster projection patches in pure RAM; smooth cluster map/navigation rendering and center/cluster screen switching verified concurrently with zero-underrun 48 kHz music and 16 kHz navigation prompts.
 - **Next-phase polish & remaining items (work in progress)**:
-  - **Audi Virtual Cockpit integration**: Coexistence with existing cluster map projection patches and bridging wireless Now Playing track metadata to the cluster;
+  - **Wireless cluster Now Playing metadata & network-stack stability hardening**: Wireless track metadata channel negotiation and session establishment have been initially tested; currently prioritizing diagnosis of an intermittent QNX network-stack stability issue before completing the cluster metadata loop;
   - **Daily auto-run mode & final boundary regression**: Trigger-free daily SD startup, log rotation, and full regression checks across Siri/mic uplink, telephony, wired USB CarPlay, and OEM Bluetooth audio.
 
 ## 3. Public Directory Contents
