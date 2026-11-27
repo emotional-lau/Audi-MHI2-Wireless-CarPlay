@@ -38,17 +38,18 @@ flowchart LR
 
 ---
 
-## 2. Current Real-Vehicle Progress (2026-11-26)
+## 2. Current Real-Vehicle Progress (2026-11-27)
 
 - **Verified & working on real vehicle**:
   - Bluetooth iAP2 authentication and Wi‑Fi credential handover, CarPlay control session discovery, HAP pairing/verification, and `ChaCha20-Poly1305` encrypted control & event channels;
   - `800×480` H.264 main display projection, smooth MMI rotary knob control, and stable manual disconnect/reconnect & auto-reconnect via the MMI Connection Manager;
   - **Zero-stutter wireless audio across all paths**: Buffered media playback (48 kHz AAC-LC tuned for iOS Wi‑Fi burst pacing, verified with `underruns=0` on real vehicle), navigation prompts (Opus 16 kHz), and bidirectional telephony/Siri uplink (Opus 16 kHz);
   - **Zero-flash pairing persistence & graceful Bluetooth release**: Cold boots skip initial pairing via persisted identity verification, and Classic Bluetooth links are cleanly released once wireless CarPlay starts;
-  - **Pure-RAM No-SIM popup suppression (verified on real vehicle)**: Eliminates the OEM "No data connection / Please insert SIM card" popup triggered when joining the vehicle AP—with zero flash writes and full preservation of iPhone 4G/5G cellular data—paired with `/ramdisk` footprint slimming (~5.5 MiB / 29% steady-state) verified across multi-minute continuous voice call and music sessions;
-  - **Audi Virtual Cockpit cluster map projection compatibility (verified on real vehicle)**: Coexists cleanly with existing cluster projection patches in pure RAM; smooth cluster map/navigation rendering and center/cluster screen switching verified concurrently with zero-underrun 48 kHz music and 16 kHz navigation prompts.
+  - **Pure-RAM No-SIM popup suppression (verified on real vehicle)**: Eliminates the OEM "No data connection / Please insert SIM card" popup triggered when joining the vehicle AP—with zero flash writes and full preservation of iPhone 4G/5G cellular data—paired with `/ramdisk` footprint slimming (~5.5–6.0 MiB / 29–30% steady-state) verified across multi-minute continuous voice call and music sessions;
+  - **Audi Virtual Cockpit cluster map projection compatibility (verified on real vehicle)**: Coexists cleanly with existing cluster projection patches in pure RAM; smooth cluster map/navigation rendering and center/cluster screen switching verified concurrently with zero-underrun 48 kHz music and 16 kHz navigation prompts;
+  - **Long-session network-stack stability verified (33.7-minute zero-crash real-vehicle run)**: After simplifying firewall queuing rules and silencing repetitive background status ioctl polling once connected, full-rate 802.11n operation ran continuously for **33.7 minutes** across main screen, Virtual Cockpit cluster map, 48 kHz music (87k+ packets), 16 kHz navigation prompts (33 segments), and Siri/WeChat bidirectional voice uplink (9 segments, 9/9 mic uplink verified) with **0 crashes, 0 errors, `underruns=0` across all audio paths**, and `/ramdisk` steady at ~`30%`.
 - **Next-phase polish & remaining items (work in progress)**:
-  - **Wireless cluster Now Playing metadata & network-stack stability hardening**: Wireless track metadata channel negotiation and session establishment have been initially tested; currently prioritizing diagnosis of an intermittent QNX network-stack stability issue before completing the cluster metadata loop;
+  - **Wireless cluster Now Playing metadata**: Wireless track metadata channel negotiation and session setup have been initially tested; with 33.7-minute zero-crash network-stack stability now verified, single-module bring-up is ready to resume for closing the cluster metadata loop;
   - **Daily auto-run mode & final boundary regression**: Trigger-free daily SD startup, log rotation, and full regression checks across Siri/mic uplink, telephony, wired USB CarPlay, and OEM Bluetooth audio.
 
 ### Compatibility Progress with `chefranov/mhi2-au37x-carplay`
@@ -57,7 +58,7 @@ flowchart LR
 | --- | --- | --- |
 | **Virtual Cockpit full-screen map / navigation cluster projection** | **✅ Verified on real vehicle** | Coexists cleanly in pure RAM; smooth rendering, stable center/cluster switching, and zero-underrun concurrent audio |
 | **Cluster call state & CarPlay disclaimer skip** | **✅ Compatible out of the box** | Works directly through stock OEM infotainment interfaces in wireless mode |
-| **Wireless cluster Now Playing metadata & progress** | **🚧 In progress** | Wireless metadata channel negotiation and session setup initially tested; pending diagnosis of an intermittent QNX network-stack crash before closing the loop |
+| **Wireless cluster Now Playing metadata & progress** | **🚧 Ready to resume** | Wireless metadata channel negotiation and session setup initially tested; 33.7-minute zero-crash network-stack stability now verified before resuming single-module bring-up |
 | **Album cover art on cluster** | **📋 Planned** | Planned extension once the wireless metadata channel is stabilized |
 | **Cluster 3D maneuver cards & phone recents/favorites/dialing** | **📋 Planned** | Wired implementation relies on USB protocol paths; wireless bridging planned after general control-session bring-up |
 
